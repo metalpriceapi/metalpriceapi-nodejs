@@ -1,0 +1,26 @@
+{
+  "name": "metalpriceapi",
+  "version": "1.0.0",
+  "description": "Official Node.js Library for MetalpriceAPI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MetalpriceAPI",
+  "license": "GNU GPLv3",
+  "dependencies": {
+    "axios": "^0.24.0"
+  },
+  "homepage": "https://metalpriceapi.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/metalpriceapi/metalpriceapi-nodejs.git"
+  },
+  "keywords": [
+    "metal",
+    "forex",
+    "currency price",
+    "currency rates",
+    "api"
+  ]
+}
