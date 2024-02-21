@@ -1,6 +1,6 @@
 {
   "name": "metalpriceapi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Official Node.js Library for MetalpriceAPI",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "MetalpriceAPI",
   "license": "GNU GPLv3",
   "dependencies": {
-    "axios": "^0.24.0"
+    "axios": "^1.6.7"
   },
   "homepage": "https://metalpriceapi.com",
   "repository": {

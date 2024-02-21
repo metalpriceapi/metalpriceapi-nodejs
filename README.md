@@ -60,7 +60,7 @@ await api.fetchLive('USD', ['XAU', 'XAG', 'XPD', 'XPT']);
 - `currencies` <[Array]<[string]>> Optional. Pass in an array of currencies to return values for.
 
 ```js
-await api.fetchHistorical('2021-04-05', 'USD', ['XAU', 'XAG', 'XPD', 'XPT']);
+await api.fetchHistorical('2024-02-05', 'USD', ['XAU', 'XAG', 'XPD', 'XPT']);
 ```
 
 [Link](https://metalpriceapi.com/documentation#api_historical)
@@ -74,7 +74,7 @@ await api.fetchHistorical('2021-04-05', 'USD', ['XAU', 'XAG', 'XPD', 'XPT']);
 - `date` <[string]> Optional. Specify date to use historical midpoint value for conversion with format `YYYY-MM-DD`. Otherwise, it will use live exchange rate date if value not passed in.
 
 ```js
-await api.convert('USD', 'EUR', 100, '2021-04-05');
+await api.convert('USD', 'EUR', 100, '2024-02-05');
 ```
 
 [Link](https://metalpriceapi.com/documentation#api_convert)
@@ -88,7 +88,7 @@ await api.convert('USD', 'EUR', 100, '2021-04-05');
 - `currencies` <[Array]<[string]>> Optional. Pass in an array of currencies to return values for.
 
 ```js
-await api.timeframe('2021-04-05', '2021-04-06', 'USD', ['XAU', 'XAG', 'XPD', 'XPT']);
+await api.timeframe('2024-02-05', '2024-02-06', 'USD', ['XAU', 'XAG', 'XPD', 'XPT']);
 ```
 
 [Link](https://metalpriceapi.com/documentation#api_timeframe)
@@ -102,10 +102,22 @@ await api.timeframe('2021-04-05', '2021-04-06', 'USD', ['XAU', 'XAG', 'XPD', 'XP
 - `currencies` <[Array]<[string]>> Optional. Pass in an array of currencies to return values for.
 
 ```js
-await api.change('2021-04-05', '2021-04-06', 'USD', ['XAU', 'XAG', 'XPD', 'XPT']);
+await api.change('2024-02-05', '2024-02-06', 'USD', ['XAU', 'XAG', 'XPD', 'XPT']);
 ```
 
 [Link](https://metalpriceapi.com/documentation#api_change)
+
+---
+#### carat(base, date)
+
+- `base` <[string]> Optional. Pass in a base currency, defaults to USD.
+- `date` <[string]> Optional. Specify date to get Carat using format `YYYY-MM-DD`. If not specified, uses live rates.
+
+```js
+await api.carat('USD', '2024-02-06');
+```
+
+[Link](https://metalpriceapi.com/documentation#api_carat)
 
 ---
 **[Official documentation](https://metalpriceapi.com/documentation)**

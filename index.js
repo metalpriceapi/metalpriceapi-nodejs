@@ -85,4 +85,15 @@
       }),
     });
   }
+
+  exports.carat = function(base, date) {
+    return axios({
+      url: 'https://api.metalpriceapi.com/v1/carat',
+      params: removeEmpty({
+        api_key: this.apiKey,
+        base: base,
+        date: date,
+      }),
+    });
+  }
 })();
