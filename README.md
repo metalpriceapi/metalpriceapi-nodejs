@@ -111,7 +111,7 @@ await api.change('2024-02-05', '2024-02-06', 'USD', ['XAU', 'XAG', 'XPD', 'XPT']
 #### carat(base, date)
 
 - `base` <[string]> Optional. Pass in a base currency, defaults to USD.
-- `date` <[string]> Optional. Specify date to get Carat using format `YYYY-MM-DD`. If not specified, uses live rates.
+- `date` <[string]> Optional. Specify date to get Carat for specific date using format `YYYY-MM-DD`. If not specified, uses live rates.
 
 ```js
 await api.carat('USD', '2024-02-06');
