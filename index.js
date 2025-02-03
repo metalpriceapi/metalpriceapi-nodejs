@@ -47,6 +47,20 @@
     });
   };
 
+  exports.ohlc = function(base, currency, date, unit, dateType) {
+    return axios({
+      url: 'https://api.metalpriceapi.com/v1/ohlc',
+      params: removeEmpty({
+        api_key: this.apiKey,
+        base: base,
+        currency: currency,
+        date: date,
+        unit: unit,
+        date_type: dateType,
+      }),
+    });
+  }
+
   exports.convert = function(from, to, amount, date) {
     return axios({
       url: 'https://api.metalpriceapi.com/v1/convert',
@@ -93,6 +107,15 @@
         api_key: this.apiKey,
         base: base,
         date: date,
+      }),
+    });
+  }
+
+  exports.usage = function() {
+    return axios({
+      url: 'https://api.metalpriceapi.com/v1/usage',
+      params: removeEmpty({
+        api_key: this.apiKey,
       }),
     });
   }
