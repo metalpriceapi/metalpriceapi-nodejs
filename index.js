@@ -2,6 +2,7 @@
   const axios = require('axios');
 
   var apiKey;
+  var baseUrl = 'https://api.metalpriceapi.com/v1';
 
   function removeEmpty(obj) {
     for (var propName in obj) {
@@ -16,9 +17,17 @@
     this.apiKey = apiKey;
   };
 
+  exports.setServer = function(server) {
+    if (server === 'eu') {
+      baseUrl = 'https://api-eu.metalpriceapi.com/v1';
+    } else {
+      baseUrl = 'https://api.metalpriceapi.com/v1';
+    }
+  };
+
   exports.fetchSymbols = function() {
     return axios({
-      url: 'https://api.metalpriceapi.com/v1/symbols',
+      url: `${baseUrl}/symbols`,
       params: {
         api_key: this.apiKey,
       },
@@ -27,7 +36,7 @@
 
   exports.fetchLive = function(base, currencies, unit, purity, math) {
     return axios({
-      url: 'https://api.metalpriceapi.com/v1/latest',
+      url: `${baseUrl}/latest`,
       params: removeEmpty({
         api_key: this.apiKey,
         base: base,
@@ -41,7 +50,7 @@
 
   exports.fetchHistorical = function(date, base, currencies, unit) {
     return axios({
-      url: `https://api.metalpriceapi.com/v1/${date}`,
+      url: `${baseUrl}/${date}`,
       params: removeEmpty({
         api_key: this.apiKey,
         base: base,
@@ -53,7 +62,7 @@
 
   exports.hourly = function(base, currency, unit, startDate, endDate, math, dateType) {
     return axios({
-      url: 'https://api.metalpriceapi.com/v1/hourly',
+      url: `${baseUrl}/hourly`,
       params: removeEmpty({
         api_key: this.apiKey,
         base: base,
@@ -69,7 +78,7 @@
 
   exports.ohlc = function(base, currency, date, unit, dateType) {
     return axios({
-      url: 'https://api.metalpriceapi.com/v1/ohlc',
+      url: `${baseUrl}/ohlc`,
       params: removeEmpty({
         api_key: this.apiKey,
         base: base,
@@ -83,7 +92,7 @@
 
   exports.convert = function(from, to, amount, date, unit) {
     return axios({
-      url: 'https://api.metalpriceapi.com/v1/convert',
+      url: `${baseUrl}/convert`,
       params: removeEmpty({
         api_key: this.apiKey,
         from: from,
@@ -97,7 +106,7 @@
 
   exports.timeframe = function(startDate, endDate, base, currencies, unit) {
     return axios({
-      url: 'https://api.metalpriceapi.com/v1/timeframe',
+      url: `${baseUrl}/timeframe`,
       params: removeEmpty({
         api_key: this.apiKey,
         start_date: startDate,
@@ -111,7 +120,7 @@
 
   exports.change = function(startDate, endDate, base, currencies, dateType) {
     return axios({
-      url: 'https://api.metalpriceapi.com/v1/change',
+      url: `${baseUrl}/change`,
       params: removeEmpty({
         api_key: this.apiKey,
         start_date: startDate,
@@ -125,7 +134,7 @@
 
   exports.carat = function(base, currency, date) {
     return axios({
-      url: 'https://api.metalpriceapi.com/v1/carat',
+      url: `${baseUrl}/carat`,
       params: removeEmpty({
         api_key: this.apiKey,
         base: base,
@@ -137,7 +146,7 @@
 
   exports.usage = function() {
     return axios({
-      url: 'https://api.metalpriceapi.com/v1/usage',
+      url: `${baseUrl}/usage`,
       params: removeEmpty({
         api_key: this.apiKey,
       }),
