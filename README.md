@@ -41,29 +41,50 @@ await api.fetchSymbols();
 [Link](https://metalpriceapi.com/documentation#api_symbol)
 
 ---
-#### fetchLive(base, currencies)
+#### fetchLive(base, currencies, unit, purity, math)
 
 - `base` <[string]> Optional. Pass in a base currency, defaults to USD.
 - `currencies` <[Array]<[string]>> Optional. Pass in an array of currencies to return values for.
+- `unit` <[string]> Optional. Pass in a unit for metal prices (e.g. `troy_oz`, `gram`, `kilogram`).
+- `purity` <[string]> Optional. Pass in a purity level for metal prices.
+- `math` <[string]> Optional. Pass in a math expression to apply to the rates.
 
 ```js
-await api.fetchLive('USD', ['XAU', 'XAG', 'XPD', 'XPT']);
+await api.fetchLive('USD', ['XAU', 'XAG', 'XPD', 'XPT'], 'troy_oz', null, null);
 ```
 
 [Link](https://metalpriceapi.com/documentation#api_realtime)
 
 ---
-#### fetchHistorical(date, base, currencies)
+#### fetchHistorical(date, base, currencies, unit)
 
 - `date` <[string]> Required. Pass in a string with format `YYYY-MM-DD`
 - `base` <[string]> Optional. Pass in a base currency, defaults to USD.
 - `currencies` <[Array]<[string]>> Optional. Pass in an array of currencies to return values for.
+- `unit` <[string]> Optional. Pass in a unit for metal prices (e.g. `troy_oz`, `gram`, `kilogram`).
 
 ```js
-await api.fetchHistorical('2024-02-05', 'USD', ['XAU', 'XAG', 'XPD', 'XPT']);
+await api.fetchHistorical('2024-02-05', 'USD', ['XAU', 'XAG', 'XPD', 'XPT'], 'troy_oz');
 ```
 
 [Link](https://metalpriceapi.com/documentation#api_historical)
+
+---
+#### hourly(base, currency, unit, startDate, endDate, math, dateType)
+
+- `base` <[string]> Optional. Pass in a base currency, defaults to USD.
+- `currency` <[string]> Required. Specify currency you would like to get hourly rates for.
+- `unit` <[string]> Optional. Pass in a unit for metal prices (e.g. `troy_oz`, `gram`, `kilogram`).
+- `startDate` <[string]> Required. Specify the start date using the format `YYYY-MM-DD`.
+- `endDate` <[string]> Required. Specify the end date using the format `YYYY-MM-DD`.
+- `math` <[string]> Optional. Pass in a math expression to apply to the rates.
+- `dateType` <[string]> Optional. Pass in a date type, overrides date parameters if passed in.
+
+```js
+await api.hourly('USD', 'XAU', 'troy_oz', '2025-11-03', '2025-11-03', null, null);
+```
+
+[Link](https://metalpriceapi.com/documentation#api_hourly)
 
 ---
 #### ohlc(base, currency, date, unit, dateType)
@@ -81,55 +102,59 @@ await api.ohlc('USD', 'XAU', '2024-02-06', 'troy_oz', null);
 [Link](https://metalpriceapi.com/documentation#api_ohlc)
 
 ---
-#### convert(from, to, amount, date)
+#### convert(from, to, amount, date, unit)
 
 - `from` <[string]> Optional. Pass in a base currency, defaults to USD.
 - `to` <[string]> Required. Specify currency you would like to convert to.
 - `amount` <[number]> Required. The amount to convert.
 - `date` <[string]> Optional. Specify date to use historical midpoint value for conversion with format `YYYY-MM-DD`. Otherwise, it will use live exchange rate date if value not passed in.
+- `unit` <[string]> Optional. Pass in a unit for metal prices (e.g. `troy_oz`, `gram`, `kilogram`).
 
 ```js
-await api.convert('USD', 'EUR', 100, '2024-02-05');
+await api.convert('USD', 'EUR', 100, '2024-02-05', null);
 ```
 
 [Link](https://metalpriceapi.com/documentation#api_convert)
 
 ---
-#### timeframe(start_date, end_date, base, currencies)
+#### timeframe(startDate, endDate, base, currencies, unit)
 
-- `start_date` <[string]> Required. Specify the start date of your timeframe using the format `YYYY-MM-DD`.
-- `end_date` <[string]> Required. Specify the end date of your timeframe using the format `YYYY-MM-DD`.
+- `startDate` <[string]> Required. Specify the start date of your timeframe using the format `YYYY-MM-DD`.
+- `endDate` <[string]> Required. Specify the end date of your timeframe using the format `YYYY-MM-DD`.
 - `base` <[string]> Optional. Pass in a base currency, defaults to USD.
 - `currencies` <[Array]<[string]>> Optional. Pass in an array of currencies to return values for.
+- `unit` <[string]> Optional. Pass in a unit for metal prices (e.g. `troy_oz`, `gram`, `kilogram`).
 
 ```js
-await api.timeframe('2024-02-05', '2024-02-06', 'USD', ['XAU', 'XAG', 'XPD', 'XPT']);
+await api.timeframe('2024-02-05', '2024-02-06', 'USD', ['XAU', 'XAG', 'XPD', 'XPT'], 'troy_oz');
 ```
 
 [Link](https://metalpriceapi.com/documentation#api_timeframe)
 
 ---
-#### change(start_date, end_date, base, currencies)
+#### change(startDate, endDate, base, currencies, dateType)
 
-- `start_date` <[string]> Required. Specify the start date of your timeframe using the format `YYYY-MM-DD`.
-- `end_date` <[string]> Required. Specify the end date of your timeframe using the format `YYYY-MM-DD`.
+- `startDate` <[string]> Required. Specify the start date of your timeframe using the format `YYYY-MM-DD`.
+- `endDate` <[string]> Required. Specify the end date of your timeframe using the format `YYYY-MM-DD`.
 - `base` <[string]> Optional. Pass in a base currency, defaults to USD.
 - `currencies` <[Array]<[string]>> Optional. Pass in an array of currencies to return values for.
+- `dateType` <[string]> Optional. Pass in a date type, overrides date parameters if passed in.
 
 ```js
-await api.change('2024-02-05', '2024-02-06', 'USD', ['XAU', 'XAG', 'XPD', 'XPT']);
+await api.change('2024-02-05', '2024-02-06', 'USD', ['XAU', 'XAG', 'XPD', 'XPT'], null);
 ```
 
 [Link](https://metalpriceapi.com/documentation#api_change)
 
 ---
-#### carat(base, date)
+#### carat(base, currency, date)
 
 - `base` <[string]> Optional. Pass in a base currency, defaults to USD.
+- `currency` <[string]> Optional. Pass in a metal code to get carat prices for (defaults to XAU).
 - `date` <[string]> Optional. Specify date to get Carat for specific date using format `YYYY-MM-DD`. If not specified, uses live rates.
 
 ```js
-await api.carat('USD', '2024-02-06');
+await api.carat('USD', 'XAU', '2024-02-06');
 ```
 
 [Link](https://metalpriceapi.com/documentation#api_carat)
