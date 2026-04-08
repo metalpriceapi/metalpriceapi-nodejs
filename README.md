@@ -180,6 +180,30 @@ await api.usage();
 **[Official documentation](https://metalpriceapi.com/documentation)**
 
 ---
+## Frontend Demo
+
+A web-based dashboard is included in the `frontend/` directory. It provides:
+
+- **Dashboard** - Live prices for Gold, Silver, Palladium, and Platinum with 24h change indicators
+- **Historical Chart** - Interactive Chart.js line chart over a custom date range
+- **OHLC & Hourly** - Open/High/Low/Close data and hourly price tables
+- **Carat Prices** - Gold carat breakdown (6K-24K) with visual comparison
+
+### Quick Start
+
+```bash
+cd frontend
+cp .env.example .env
+# Edit .env and add your API key
+npm install
+npm run dev
+```
+
+Then open `http://localhost:5173` in your browser.
+
+The frontend runs a Vite dev server proxying API calls to a local Express server that uses the metalpriceapi library. Your API key stays server-side and is never exposed to the browser.
+
+---
 ## FAQ
 
 - How do I get an API Key?

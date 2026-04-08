@@ -1,0 +1,6 @@
+.dash-status {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 8px 0;
+}
