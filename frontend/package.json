@@ -1,0 +1,25 @@
+{
+  "name": "metalpriceapi-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontend demo for MetalpriceAPI",
+  "scripts": {
+    "dev:client": "vite",
+    "dev:server": "node server/index.js",
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.7",
+    "date-fns": "^3.6.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7"
+  }
+}

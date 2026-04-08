@@ -1,0 +1,11 @@
+#carat-display {
+  margin-bottom: 24px;
+}
+
+.carat-table td:last-child {
+  width: 40%;
+}
+
+.carat-bar-container {
+  width: 100%;
+}
